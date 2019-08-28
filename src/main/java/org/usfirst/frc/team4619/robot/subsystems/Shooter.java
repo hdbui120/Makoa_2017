@@ -36,10 +36,12 @@ public class Shooter extends Subsystem{
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
+		//this default method calls the shootball command with parameter as motor rpm
 		//11000 should be default (original rpm -10%)
 		setDefaultCommand(new ShootBall(11000));
 	}
 	
+	//constructor that initialize PID control and shooting motor
 	public Shooter() {
 		shooter = new CANTalon(devID);
 		shooter.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -52,6 +54,7 @@ public class Shooter extends Subsystem{
 		shooter.setD(kD);
 	}
 	
+	//method that makes motor spin at specify rpm to shoot
 	public void Shoot(double speed) {
 		//maximum rpm is 13180 +/- 10%
 		this.speed = speed;
@@ -59,6 +62,7 @@ public class Shooter extends Subsystem{
 		shooter.set(speed);
 	}
 	
+	//motor does not spin
 	public void doNothing() {
 		shooter.changeControlMode(TalonControlMode.Speed);
 		shooter.set(0);
