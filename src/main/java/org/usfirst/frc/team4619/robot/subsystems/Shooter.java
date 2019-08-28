@@ -9,10 +9,21 @@ import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+/*
+	This class create and develop shooting mechanism for the robot
+	The shooter uses one SIM motor to shoot the ball
+	The trajectory is determined by the arc of the ball, which is determined by the speed of the motor
+*/
+
 public class Shooter extends Subsystem{	
 	
+	//declare the motor object, which uses CAN to control 
 	CANTalon shooter;
+
+	//Assign the CAN proper id
 	int devID = 0;
+
+	//declare PID gains
 	double kF = 0;
 	double kP = .8;
 	double kI = .2;
