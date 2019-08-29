@@ -15,8 +15,6 @@ public class RobotMap {
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
 	public final static int A = 1;
 	public final static int B = 2;
 	public final static int X = 3;
@@ -28,7 +26,7 @@ public class RobotMap {
 	public final static int R_TRIGGER = 3;
 	public final static int L_TRIGGER = 4;
 	
-	//this constant is for the logitech button 
+	//these constants are for the logitech buttons  
 	public final static int TRIGGER = 0;
 	public final static int BUTTON3 = 3;
 	

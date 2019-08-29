@@ -24,8 +24,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser;
 	UsbCamera cam;
@@ -36,14 +34,17 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		//Command base is a type of code structure that use to program robot
 		CommandBase.init();
 		
+		//initialize dashboard input ui
 		chooser = new SendableChooser<>();
 		chooser.addDefault("Default Auto", new DriveDistance(0));
 		chooser.addObject("Base Line", new TimeDriveMod(3, .5));
 		chooser.addObject("gear ", new TimeDriveMod(10, .3));
 		SmartDashboard.putData("Sup Chrissy, pick one: ", chooser);
 
+		//initialize robot camera
 		cam = CameraServer.getInstance().startAutomaticCapture();
 		cam.setResolution(160, 120);
 		cam.setFPS(30);

@@ -14,9 +14,6 @@ public class OI {
 	//created xbox joystick object
 	Joystick xbox = new Joystick(RobotMap.XBOX_PORT);
 	
-	//created logitech joystick object
-	//Joystick logitech = new Joystick(RobotMap.LOGITECH_PORT);
-	
 	//created buttons for xbox joysticks
 	public Button A;
 	public Button B;
@@ -45,9 +42,6 @@ public class OI {
 		{
 			buttons[i] = new JoystickButton(xbox, buttonValues[i]);
 		}
-		
-		//TRIGGER = new JoystickButton(logitech, RobotMap.TRIGGER);
-		//BUTTON3 = new JoystickButton(logitech, RobotMap.BUTTON3);
 	}
 	
 	//constructor
@@ -70,31 +64,4 @@ public class OI {
 	{
 		return xbox.getRawAxis(RobotMap.XBOX_YAXIS);
 	}
-	
-	
-	
-	
-
-	
-
-	// There are a few additional built in buttons you can use. Additionally,
-	// by subclassing Button you can create custom triggers and bind those to
-	// commands the same as any other Button.
-
-	//// TRIGGERING COMMANDS WITH BUTTONS
-	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
-
-	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenPressed(new ExampleCommand());
-
-	// Run the command while the button is being held down and interrupt it once
-	// the button is released.
-	// button.whileHeld(new ExampleCommand());
-
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
-
 }

@@ -9,13 +9,19 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class CommandBase extends Command{
 
+	//create joystick object from oi class
 	public static OI oi;
+
+	//Initialize all the subsystems
 	public static DriveBase driveMech = new DriveBase();
 	public static Shooter shooterMech = new Shooter();
 	public static Climber climberMech = new Climber();
 	
 	public static void init() {
+		//initialize oi object
 		oi = new OI();
+
+		//calibrate gyroscope
 		driveMech.gyro.calibrate();
 	}	
 	
