@@ -2,10 +2,18 @@ package org.usfirst.frc.team4619.robot.commands;
 
 public class TimeDriveMod extends CommandBase{
 	
+	/*
+		This class let the drive train to drive at a certain amount of seconds in the event the encoders break
+	*/
+
+	//variables needed to calculate difference in time
 	double time;
 	long startTime;
+
+	//rpm of the motors
 	double speed;
 	
+	//constructor that take desire time and speed
 	public TimeDriveMod(double time, double speed)
 	{
 		requires(driveMech);
@@ -15,10 +23,10 @@ public class TimeDriveMod extends CommandBase{
 	
 	protected void initialize() 
 	{
-		//setTimeout(this.time);
 		this.startTime = System.currentTimeMillis();
 	}
 
+	//drive forward at certain speed
 	@Override
 	protected void execute() 
 	{
@@ -30,7 +38,6 @@ public class TimeDriveMod extends CommandBase{
 	{
 		// TODO Auto-generated method stub
 		return System.currentTimeMillis() - this.startTime > this.time * 1000;
-		//return isTimedOut();
 	}
 	
 	@Override
